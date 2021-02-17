@@ -23,9 +23,15 @@
 <link rel="stylesheet" href="css/login.css">
 
 <title>i-store</title>
+
+
+
 </head>
 <body>
+
 	<div class="login-page">
+		<h3 style="color: #80ff00;
+">WELCOME! PLEASE SIGN IN</h3>
 		<div class="form">
 			<form class="register-form">
 				<input class="firstName" type="text" placeholder="first name" /> <input
