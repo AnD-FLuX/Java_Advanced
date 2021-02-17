@@ -3,10 +3,13 @@
 	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
 	version="4.0">
-	<display-name>lesson_06</display-name>
+	
+	<display-name>lesson_07</display-name>
+	
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
+	
 	<servlet>
 		<servlet-name>registration</servlet-name>
 		<servlet-class>ua.lviv.lgs.servlet.RegistrationServlet</servlet-class>

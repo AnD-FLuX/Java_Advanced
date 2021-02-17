@@ -7,7 +7,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import ua.lviv.lgs.domain.User;
 import ua.lviv.lgs.domain.UserRole;
@@ -26,15 +25,13 @@ public class RegistrationServlet extends HttpServlet {
 		String firstName = request.getParameter("firstName");
 		String lastName = request.getParameter("lastName");
 		String password = request.getParameter("password");
-		
-		
 
 		if (!email.isEmpty() && !firstName.isEmpty() && !lastName.isEmpty() && !password.isEmpty()) {
-			userService.create(new User(email, firstName, lastName,UserRole.USER.toString(), password));
+			userService.create(new User(firstName, lastName, email, UserRole.USER.toString(), password));
 		}
-		
-		HttpSession session = request.getSession(true);
-		session.setAttribute("userEmail", email);
-		request.getRequestDispatcher("cabinet.jsp").forward(request, response);
+
+		response.setContentType("text/plain");
+		response.setCharacterEncoding("UTF-8");
+		response.getWriter().write("Success");
 	}
 }
