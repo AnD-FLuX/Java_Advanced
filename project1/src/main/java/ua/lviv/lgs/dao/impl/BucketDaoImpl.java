@@ -4,6 +4,8 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import ua.lviv.lgs.dao.BucketDao;
 import ua.lviv.lgs.domain.Bucket;
 import ua.lviv.lgs.utils.ConnectionUtils;
@@ -14,63 +16,85 @@ public class BucketDaoImpl implements BucketDao {
 	static String READ_BY_ID = "select * from bucket where id=?";
 	static String DELETE_BY_ID = "delete from bucket where id=?";
 
-	private Connection con;
-	private PreparedStatement rpp;
+	private static Logger LOGGER = Logger.getLogger(BucketDaoImpl.class);
 
-	public BucketDaoImpl() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
-		this.con = ConnectionUtils.connect();
+	private Connection connection;
+	private PreparedStatement preparedStatement;
+
+	public BucketDaoImpl() {
+		try {
+			this.connection = ConnectionUtils.connect();
+		} catch (InstantiationException | IllegalAccessException | ClassNotFoundException | SQLException e) {
+			LOGGER.error(e);
+		}
 	}
 
 	@Override
-	public Bucket create(Bucket bucketDao) throws SQLException {
-		rpp = con.prepareStatement(CREATE, Statement.RETURN_GENERATED_KEYS);
-		rpp.setInt(1, bucketDao.getUserId());
-		rpp.setInt(2, bucketDao.getProductId());
-		rpp.executeUpdate();
-		ResultSet resultSet = rpp.getGeneratedKeys();
-		resultSet.next();
-		bucketDao.setId(resultSet.getInt(1));
-		return bucketDao;
-	}
-
-	@Override
-	public Bucket read(Integer id) throws SQLException {
-		Bucket bucket;
-		rpp = con.prepareStatement(READ_BY_ID);
-		rpp.setInt(1, id);
-		ResultSet res = rpp.executeQuery();
-		res.next();
-		int bucketId = res.getInt("id");
-		int userId = res.getInt("userId");
-		int productId = res.getInt("productId");
-		String nowDate = res.getString("nowDate");
-		bucket = new Bucket(bucketId, userId, productId, nowDate);
+	public Bucket create(Bucket bucket) {
+		try {
+			preparedStatement = connection.prepareStatement(CREATE, Statement.RETURN_GENERATED_KEYS);
+			preparedStatement.setInt(1, bucket.getUserId());
+			preparedStatement.setInt(2, bucket.getProductId());
+			preparedStatement.executeUpdate();
+			ResultSet resultSet = preparedStatement.getGeneratedKeys();
+			resultSet.next();
+			bucket.setId(resultSet.getInt(1));
+		} catch (SQLException e) {
+			LOGGER.error(e);
+		}
 		return bucket;
 	}
 
 	@Override
-	public void update(Integer id, Bucket bucketDao) {
+	public Bucket read(Integer id) {
+		Bucket bucket = null;
+		try {
+			preparedStatement = connection.prepareStatement(READ_BY_ID);
+			preparedStatement.setInt(1, id);
+			ResultSet resultSet = preparedStatement.executeQuery();
+			resultSet.next();
+			int bucketId = resultSet.getInt("id");
+			int userId = resultSet.getInt("userId");
+			int productId = resultSet.getInt("productId");
+			String nowDate = resultSet.getString("nowDate");
+			bucket = new Bucket(bucketId, userId, productId, nowDate);
+		} catch (SQLException e) {
+			LOGGER.error(e);
+		}
+		return bucket;
+	}
+
+	@Override
+	public void update(Integer id, Bucket bucket) {
 		throw new IllegalStateException("no update");
 	}
 
 	@Override
-	public void delete(Integer id) throws SQLException {
-		rpp = con.prepareStatement(DELETE_BY_ID);
-		rpp.setInt(1, id);
-		rpp.executeUpdate();
+	public void delete(Integer id) {
+		try {
+			preparedStatement = connection.prepareStatement(DELETE_BY_ID);
+			preparedStatement.setInt(1, id);
+			preparedStatement.executeUpdate();
+		} catch (SQLException e) {
+			LOGGER.error(e);
+		}
 	}
 
 	@Override
-	public List<Bucket> readAll() throws SQLException {
+	public List<Bucket> readAll() {
 		List<Bucket> list = new ArrayList<>();
-		rpp = con.prepareStatement(READ_ALL);
-		ResultSet res = rpp.executeQuery();
-		while (res.next()) {
-			int id = res.getInt("id");
-			int userId = res.getInt("userId");
-			int productId = res.getInt("productId");
-			String nowDate = res.getString("nowDate");
-			list.add(new Bucket(id, userId, productId, nowDate));
+		try {
+			preparedStatement = connection.prepareStatement(READ_ALL);
+			ResultSet resultSet = preparedStatement.executeQuery();
+			while (resultSet.next()) {
+				int id = resultSet.getInt("id");
+				int userId = resultSet.getInt("userId");
+				int productId = resultSet.getInt("productId");
+				String nowDate = resultSet.getString("nowDate");
+				list.add(new Bucket(id, userId, productId, nowDate));
+			}
+		} catch (SQLException e) {
+			LOGGER.error(e);
 		}
 		return list;
 	}

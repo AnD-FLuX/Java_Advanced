@@ -15,15 +15,17 @@ public class MainTest {
 //		System.out.println(userService.readAll());
 
 //		ProductService productService = new ProductServiceImpl();
-//		System.out.println(productService.readAll());
+
 //		productService.create(new Product("aaaa", "description", 123));
 //		productService.create(new Product("bbbbb", "description", 321));
 //		productService.delete(2);
+//		productService.delete(4);
+//		productService.delete(5);
 //        productService.update(3, new Product("zzzzz", "description", 555));
 //		System.out.println(productService.readAll());
 
 //		BucketService bucketService = new BucketServiceImpl();
-//
+
 //		bucketService.create(new Bucket(2, 2));
 //		System.out.println(bucketService.readAll());
 	}

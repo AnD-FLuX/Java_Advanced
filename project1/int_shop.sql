@@ -7,7 +7,8 @@ CREATE TABLE user(
     email VARCHAR(50) NOT NULL,
 	firstName VARCHAR(50) NOT NULL,
 	lastName VARCHAR(50) NOT NULL,
-    role  VARCHAR(25) NOT NULL
+    role  VARCHAR(25) NOT NULL,
+    password VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE product(
@@ -35,3 +36,4 @@ SELECT * FROM user;
 SELECT * FROM product;
 
 SELECT * FROM bucket;
+

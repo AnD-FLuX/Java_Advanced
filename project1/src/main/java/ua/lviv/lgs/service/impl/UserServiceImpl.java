@@ -1,6 +1,5 @@
 package ua.lviv.lgs.service.impl;
 
-import java.sql.SQLException;
 import java.util.List;
 
 import ua.lviv.lgs.dao.UserDao;
@@ -10,35 +9,46 @@ import ua.lviv.lgs.service.UserService;
 
 public class UserServiceImpl implements UserService {
 	private UserDao userDao;
+	private static UserService userServiceImpl;
 
-	public UserServiceImpl()
-			throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
+	public UserServiceImpl() {
 		userDao = new UserDaoImpl();
 	}
 
+	public static UserService getUserService() {
+		if (userServiceImpl == null) {
+			userServiceImpl = new UserServiceImpl();
+		}
+		return userServiceImpl;
+	}
+
 	@Override
-	public User create(User user) throws SQLException {
+	public User create(User user) {
 		return userDao.create(user);
 	}
 
 	@Override
-	public User read(Integer id) throws SQLException {
+	public User read(Integer id) {
 		return userDao.read(id);
 	}
 
-	
 	@Override
-	public void update(Integer id, User user) throws SQLException {
+	public void update(Integer id, User user) {
 		userDao.update(id, user);
 	}
 
 	@Override
-	public void delete(Integer id) throws SQLException {
+	public void delete(Integer id) {
 		userDao.delete(id);
 	}
 
 	@Override
-	public List<User> readAll() throws SQLException {
+	public List<User> readAll() {
 		return userDao.readAll();
+	}
+
+	@Override
+	public User getUserByEmail(String email) {
+		return userDao.getUserByEmail(email);
 	}
 }

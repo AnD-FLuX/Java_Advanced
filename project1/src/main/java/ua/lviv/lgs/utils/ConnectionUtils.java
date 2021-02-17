@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import org.apache.log4j.xml.DOMConfigurator;
+
 public class ConnectionUtils {
 
 	private static String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
@@ -13,6 +15,9 @@ public class ConnectionUtils {
 
 	public static Connection connect()
 			throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException {
+		
+		DOMConfigurator.configure("log4j.xml");
+		
 		Class.forName(JDBC_DRIVER).newInstance();
 
 		return DriverManager.getConnection(DATABASE_URL, USER, PASSWORD);

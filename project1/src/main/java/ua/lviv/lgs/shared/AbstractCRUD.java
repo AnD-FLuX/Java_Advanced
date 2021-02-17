@@ -1,18 +1,17 @@
 package ua.lviv.lgs.shared;
 
-import java.sql.SQLException;
 import java.util.List;
 
 public interface AbstractCRUD<T> {
 
-	T create(T t) throws SQLException;
+	T create(T t);
 
-	T read(Integer id) throws SQLException;
+	T read(Integer id);
 
-	void update(Integer id, T t) throws SQLException;
+	void update(Integer id, T t);
 
-	void delete(Integer id) throws SQLException;
+	void delete(Integer id);
 
-	List<T> readAll() throws SQLException;
+	List<T> readAll();
 
 }
