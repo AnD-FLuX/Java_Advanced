@@ -104,13 +104,28 @@
 	color: #EF3B3A;
 }
 
+
 body {
-	background: url("../image/back.jpg");
+	background: no-repeat center center fixed url("../image/back.jpg");
 	font-family: "Roboto", sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 }
 
 div.login-page div.alert.alert-success {
 	display: none;
+}
+
+.site {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+}
+
+.site-content {
+	flex: 1;
 }

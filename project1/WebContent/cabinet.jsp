@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Cabinet</title>
+<title>BLVCK</title>
 
 <!-- Bootstrap CSS -->
 <link rel="stylesheet"
@@ -20,6 +20,9 @@
 </head>
 <body>
 
+<div class="site">
+<div class="site-content">
+
 	<jsp:include page="header.jsp"></jsp:include>
 
 
@@ -27,9 +30,9 @@
 		<div class="row" id="productCards"></div>
 	</div>
 
-
-
+</div>
 	<jsp:include page="footer.jsp"></jsp:include>
+</div>
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

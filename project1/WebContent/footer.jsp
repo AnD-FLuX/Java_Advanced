@@ -83,7 +83,7 @@
 
 
 	<div class="container">
-		<br>		
+		<br>
 		<p class="text-center">
 			Copyright @2021 | Designed With by <a href="#">AnD FLuX</a>
 		</p>
@@ -102,3 +102,4 @@
 	</div>
 
 </footer>
+

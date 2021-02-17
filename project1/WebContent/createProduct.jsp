@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Cabinet</title>
+<title>BLVCK</title>
 
 <!-- Bootstrap CSS -->
 <link rel="stylesheet"
@@ -28,41 +28,46 @@
 </head>
 <body>
 
-	<jsp:include page="header.jsp"></jsp:include>
+	<div class="site">
+		<div class="site-content">
+			<jsp:include page="header.jsp"></jsp:include>
 
 
-	<div class="content">
-		<h4>Create new product</h4>
-		<div class="container-fluid">
-			<div class="row">
+			<div class="content">
 
-				<form class="createProduct">
-					<div class="form-group">
-						<input type="text" class="form-control productName"
-							placeholder="enter product name">
+				<div class="container-fluid">
+
+					<div class="row">
+
+						<form class="createProduct">
+							<h4>Create new product:</h4>
+							<br>
+							<div class="form-group">
+								<input type="text" class="form-control productName"
+									placeholder="enter product name">
+							</div>
+
+							<div class="form-group">
+								<input type="text" class="form-control productDescription"
+									placeholder="enter product description">
+							</div>
+
+							<div class="form-group">
+								<input type="number" class="form-control productPrice"
+									placeholder="enter product price">
+							</div>
+							<br>
+							<button class="btn btn-primary createProduct">Submit</button>
+						</form>
+
 					</div>
 
-					<div class="form-group">
-						<input type="text" class="form-control productDescription"
-							placeholder="enter product description">
-					</div>
-
-					<div class="form-group">
-						<input type="number" class="form-control productPrice"
-							placeholder="enter product price">
-					</div>
-
-					<button class="btn btn-primary createProduct">Submit</button>
-				</form>
-
+				</div>
 			</div>
-
 		</div>
+
+		<jsp:include page="footer.jsp"></jsp:include>
 	</div>
-
-
-	<jsp:include page="footer.jsp"></jsp:include>
-
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
 		crossorigin="anonymous"></script>

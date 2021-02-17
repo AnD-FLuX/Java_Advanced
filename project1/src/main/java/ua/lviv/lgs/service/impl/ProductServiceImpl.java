@@ -1,6 +1,9 @@
 package ua.lviv.lgs.service.impl;
 
 import java.util.List;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 import ua.lviv.lgs.dao.ProductDao;
 import ua.lviv.lgs.dao.impl.ProductDaoImpl;
@@ -39,12 +42,16 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public void delete(Integer id) {
-
 		productDao.delete(id);
 	}
 
 	@Override
 	public List<Product> readAll() {
 		return productDao.readAll();
+	}
+
+	@Override
+	public Map<Integer, Product> readAllMap() {
+		return  readAll().stream().collect(Collectors.toMap(Product::getId, Function.identity()));
 	}
 }

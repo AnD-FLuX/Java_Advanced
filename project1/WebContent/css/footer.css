@@ -120,11 +120,13 @@ footer p {
 	height: 20px;
 	text-align: center;
 }
-* {
-	margin: 0;
-	padding: 0;
-}
-.content {
-	min-height: calc(100vh - 420px);
+
+.site {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
 
+.site-content {
+  flex: 1;
+}

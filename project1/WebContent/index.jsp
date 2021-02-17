@@ -22,59 +22,58 @@
 
 <link rel="stylesheet" href="css/login.css">
 
-<title>i-store</title>
-
+<title>BLVCK</title>
 
 
 </head>
 <body>
+	<div class="site">
 
-	<div class="login-page">
-		<h3 style="color: #80ff00;
-">WELCOME! PLEASE SIGN IN</h3>
-		<div class="form">
-			<form class="register-form">
-				<input class="firstName" type="text" placeholder="first name" /> <input
-					class="lastName" type="text" placeholder="last name" /> <input
-					class="email" type="text" placeholder="email address" /> <input
-					class="password" type="password" placeholder="password" /> <input
-					class="cpassword" type="password" placeholder="confirm password" />
+		<div class="login-page site-content">
+			<h3 style="color: #80ff00;">WELCOME! PLEASE SIGN IN</h3>
+			<div class="form">
+				<form class="register-form">
+					<input class="firstName" type="text" placeholder="first name" /> <input
+						class="lastName" type="text" placeholder="last name" /> <input
+						class="email" type="text" placeholder="email address" /> <input
+						class="password" type="password" placeholder="password" /> <input
+						class="cpassword" type="password" placeholder="confirm password" />
 
-				<button class="register">create</button>
+					<button class="register">create</button>
 
-				<p class="message">
-					Already registered? <a href="#">Sign In</a>
-				</p>
-			</form>
-			<form class="login-form">
-				<input class="email" type="text" placeholder="email address" /> <input
-					class="password" type="password" placeholder="password" />
+					<p class="message">
+						Already registered? <a href="#">Sign In</a>
+					</p>
+				</form>
+				<form class="login-form">
+					<input class="email" type="text" placeholder="email address" /> <input
+						class="password" type="password" placeholder="password" />
 
-				<button class="login">login</button>
+					<button class="login">login</button>
 
-				<p class="message">
-					Not registered? <a href="#">Create an account</a>
-				</p>
+					<p class="message">
+						Not registered? <a href="#">Create an account</a>
+					</p>
 
-			</form>
+				</form>
+
+			</div>
+			<div class="alert alert-success  alert-dismissible fade show"
+				role="alert">
+				<b>Success!</b> You are registered.
+				<button type="button" class="close" data-dismiss="alert"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
 
 		</div>
-		<div class="alert alert-success  alert-dismissible fade show"
-			role="alert">
-			<b>Success!</b> You are registered.
-			<button type="button" class="close" data-dismiss="alert"
-				aria-label="Close">
-				<span aria-hidden="true">&times;</span>
-			</button>
-		</div>
+
+
+		<jsp:include page="footer.jsp"></jsp:include>
+
 
 	</div>
-
-
-	<jsp:include page="footer.jsp"></jsp:include>
-
-
-
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
 		crossorigin="anonymous"></script>
@@ -90,5 +89,6 @@
 		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
 	<script src="js/login.js"></script>
+
 </body>
 </html>
