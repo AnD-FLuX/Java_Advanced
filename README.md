@@ -1,6 +1,7 @@
 # Java_Advanced
 
-####Mаven, Gradle
+***Mаven, Gradle***
+
 **Урок №12**
 
 1. Створити [MAVEN Project](https://github.com/AnD-FLuX/Java_Advanced/tree/lesson_12_maven) та  [GRADLE Project](https://github.com/AnD-FLuX/Java_Advanced/tree/lesson_12_gradle)
